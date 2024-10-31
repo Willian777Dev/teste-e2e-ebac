@@ -11,13 +11,17 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
       Preenchendo todas opções no checkout
       E validando minha compra ao final */
 
-  beforeEach(() => {
-      cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
-  });
-
   it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
       //TODO: Coloque todo o fluxo de teste aqui, considerando as boas práticas e otimizações
       
+  });
+
+  beforeEach(() => {
+    cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+  });
+
+  describe('Funcionalidade= Login', () => {
+    
   });
   
   it('Deve realizar o login com sucesso', () => {
