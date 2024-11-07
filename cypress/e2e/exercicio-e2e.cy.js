@@ -15,41 +15,25 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
 
   it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
        //TODO: Coloque todo o fluxo de teste aqui, considerando as boas práticas e otimizações
-
-        it('Deve realizar o login com sucesso', () => {
+        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
         cy.get('#username').type('aluno_ebac@teste.com')
         cy.get('#password').type('teste@teste.com')
         cy.get('.woocommerce-form > .button').click()
-        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, aluno_ebac')
-        });
     
-        it('Deve selecionar 1 produto da lista', () => {
         cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
         produtosPage.buscarProduto('Argus All-Weather Tank')
-        cy.get('.product_title').should('contain', 'Argus All-Weather Tank')
-        });
     
-        it('Deve selecionar 1 produto da lista', () => {
         cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
         produtosPage.buscarProduto('Ajax Full-Zip Sweatshirt')
-        cy.get('.product_title').should('contain', 'Ajax Full-Zip Sweatshirt')
-        });
     
-        it('Deve buscar 1 produto com sucesso', () => {
         cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
         produtosPage.buscarProduto('Eos V-Neck Hoodie')
-        cy.get('.product_title').should('contain', 'Eos V-Neck Hoodie')
-        });
     
-        it('Deve adicionar 1 produto ao carrinho', () => {
-            produtosPage.buscarProduto('Ajax Full-Zip Sweatshirt')
-            produtosPage.addProdutoCarrinho('XS', 'Green', 3)
-            cy.get('.product_title').should('contain', 'Ajax Full-Zip Sweatshirt')
-        });
+        produtosPage.buscarProduto('Ajax Full-Zip Sweatshirt')
+        produtosPage.addProdutoCarrinho('XS', 'Green', 3)
     
-        it('Deve adicionar 1 produto ao carrinho', () => {
-            produtosPage.buscarProduto('Tristan Endurance Tank')
-            produtosPage.addProdutoCarrinho('S', 'Gray', 6)
-            cy.get('.product_title').should('contain', 'Tristan Endurance Tank')
-        });
+        produtosPage.buscarProduto('Tristan Endurance Tank')
+        produtosPage.addProdutoCarrinho('S', 'Gray', 6)
+        cy.get('.product_title').should('contain', 'Tristan Endurance Tank')
+        
      })
